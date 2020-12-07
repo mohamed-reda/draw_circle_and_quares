@@ -87,7 +87,7 @@ Widget button(
               Radius.circular(10),
             ),
           ),
-          width: 100,
+          width: 150,
           height: 100,
         ),
       ),
@@ -102,40 +102,38 @@ class MyCustomClipper extends CustomClipper<Path> {
 
   @override
   Path getClip(Size size) {
-    var controlPoint = Offset(size.width / 2, size.height / 2);
-    var endPoint = Offset(size.width / 2, size.height);
+    var controlPoint = Offset(50, 50);
+    var endPoint = Offset(size.width - 58, size.height);
 
-    var endPoint1 = Offset(0, size.height / 2);
+    var endPoint1 = Offset(0, 53);
 
-    var endPoint2 = Offset(size.width, size.height / 2);
+    var endPoint2 = Offset(size.width, 58);
 
-    var endPoint3 = Offset(size.width / 2, 0);
+    var endPoint3 = Offset(58, 0);
 
     List listOfPaths = [
       Path()
         ..lineTo(size.width, 0)
-        ..lineTo(size.width, size.height / 2)
+        ..lineTo(size.width, 53)
         // ..lineTo(0, size.height)
-        ..quadraticBezierTo(
-            controlPoint.dx, controlPoint.dy, endPoint.dx, endPoint.dy)
+        ..quadraticBezierTo(size.width / 2 + 20, 58, endPoint.dx, endPoint.dy)
         ..lineTo(0, size.height)
         ..close(),
       Path()
         ..lineTo(size.width, 0)
         ..lineTo(size.width, size.height)
-        ..lineTo(size.width / 2, size.height)
+        ..lineTo(58, size.height)
         // ..lineTo(0, size.height)
         ..quadraticBezierTo(
             controlPoint.dx, controlPoint.dy, endPoint1.dx, endPoint1.dy)
         ..lineTo(0, size.height)
-        ..lineTo(0, size.height / 2)
+        ..lineTo(0, 58)
         ..close(),
       Path()
-        ..lineTo(size.width / 2, 0)
+        ..lineTo(size.width - 58, 0)
         // ..lineTo(size.width, size.wid/2)
         // ..lineTo(0, size.height)
-        ..quadraticBezierTo(
-            controlPoint.dx, controlPoint.dy, endPoint2.dx, endPoint2.dy)
+        ..quadraticBezierTo(size.width / 2 + 20, 52, endPoint2.dx, endPoint2.dy)
         ..lineTo(size.width, size.height)
         ..lineTo(0, size.height)
         ..close(),
@@ -143,7 +141,7 @@ class MyCustomClipper extends CustomClipper<Path> {
         ..moveTo(size.width, 0)
         ..lineTo(size.width, size.height)
         ..lineTo(0, size.height)
-        ..lineTo(0, size.height / 2)
+        ..lineTo(0, 58)
         ..quadraticBezierTo(
             controlPoint.dx, controlPoint.dy, endPoint3.dx, endPoint3.dy)
         // ..lineTo(0, 0)
